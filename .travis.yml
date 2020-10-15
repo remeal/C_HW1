@@ -33,9 +33,24 @@ os:
 compiler:
     - gcc
 
+addons:
+    apt:
+        packages:
+            - valgrind
+            - cppcheck
+            - clang
+before_scripts:
+    - sudo apt-get install -y libtest-dev
+    - sudo pip install cpplint
 script:
     - mkdir build
     - cd build
+    - ctest --output-on-failure
+    - cppcheck --std=c99 --enable=all -inconclusive src
+    - cppcheck --std=c++11 --enable=all -inconclusive test
+    - cpplint --filter=-legal/copyright,-readability/casting test/*.cpp
+    - cpplint --filter=-legal/copyright,-readability/casting include/*.h
     - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
     - cmake --build .
-    - ctest --output-on-failure
+after_success:
+    - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./test.out

@@ -1,4 +1,4 @@
-set(CMAKE_CXX_FLAGS "-Wall -Werror -pedantic -fprofile-arcs -ftest-coverage")
+set(CMAKE_CXX_FLAGS "-ftest-coverage")
 set(CMAKE_CXX_STANDARD 17)
 include_directories("${PROJECT_SOURCE_DIR}/include")
 

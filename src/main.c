@@ -8,7 +8,6 @@
 int main() {
     char name[13];
     char time[6];
-    int check;
     struct train* your_station;
     printf("%s\n", "Enter name of station (13 char max)");
     scanf("%12s", name);

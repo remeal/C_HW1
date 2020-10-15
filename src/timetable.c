@@ -3,7 +3,7 @@
 //
 #include <stdlib.h>
 #include <string.h>
-#include "testy/timetable.h"
+#include "../include/testy/timetable.h"
 
 struct timetable* create_timetable() {
     struct timetable *timetable = NULL;

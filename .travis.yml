@@ -48,13 +48,6 @@ script:
     - cppcheck --std=c++11 --enable=all -inconclusive test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting include/*.h
-    - cd src
-    - clang -coverage -O0 nearest_train.c -o nearest_train
-    - ./nearest_train
-    - gcov nearest_train.c
-    - clang -coverage -O0 timetable.c -o timetable
-    - ./timetable
-    - gcov timetable.c
     - cmake .
     - make
 after_success:

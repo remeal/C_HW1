@@ -2,7 +2,7 @@
 // Created by Dashik on 05.10.2020.
 //
 
-#include "testy/timetable.h"
+#include "../include/testy/timetable.h"
 
 #include <stdlib.h>
 #include <string.h>

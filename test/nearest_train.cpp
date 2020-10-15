@@ -35,7 +35,7 @@ TEST(nearest_train, set_local_time) {
     struct train *train = nearest_train("Pavshino", "now", &found_train);
     struct tm *u;
     const time_t timer = time(NULL);
-    u = localtime(&timer);
+    u = localtime_r(&timer, u);
     if (u->tm_hour < 16)
         EXPECT_NE(train, nullptr);
     else

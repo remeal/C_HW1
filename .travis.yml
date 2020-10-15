@@ -48,8 +48,7 @@ script:
     - cppcheck --std=c++11 --enable=all -inconclusive test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting include/*.h
-    - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
-    - cmake --build .
+    - cmake .
     - make
 after_success:
     - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./test.out

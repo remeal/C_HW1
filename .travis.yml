@@ -52,3 +52,4 @@ script:
     - make
 after_success:
     - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./test.out
+    - bash <(curl -s https://codecov.io/bash)

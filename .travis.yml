@@ -38,6 +38,7 @@ addons:
         packages:
             - valgrind
             - cppcheck
+            - cmake
             - clang
 before_scripts:
     - sudo pip install cpplint
@@ -51,6 +52,5 @@ script:
     - cmake .
     - make
 after_success:
-    - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./test.out
-    - cd "${TRAVIS_BUILD_DIR}"
-    - bash <(curl -s https://codecov.io/bash) -t e2b2f057-b67a-4e1c-b395-fb667e18b762
+    - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./main
+    - bash <(curl -s https://codecov.io/bash)

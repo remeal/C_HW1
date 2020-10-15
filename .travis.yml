@@ -48,6 +48,8 @@ script:
     - cppcheck --std=c++11 --enable=all -inconclusive test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting include/*.h
+    - clang -coverage
+    - gcov
     - cmake .
     - make
 after_success:

@@ -52,4 +52,5 @@ script:
     - make
 after_success:
     - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./test.out
-    - bash <(curl -s https://codecov.io/bash)
+    - cd "${TRAVIS_BUILD_DIR}"
+    - bash <(curl -s https://codecov.io/bash) -t e2b2f057-b67a-4e1c-b395-fb667e18b762

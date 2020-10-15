@@ -18,7 +18,7 @@ addons:
             - cmake
             - clang
 before_script:
-    - pip install cpplint
+    - sudo pip install cpplint
 script:
     - ctest --output-on-failure
     - cd "${TRAVIS_BUILD_DIR}"

@@ -45,8 +45,8 @@ script:
     - mkdir build
     - cd build
     - ctest --output-on-failure
-    - cppcheck --std=c99 --enable=all -inconclusive src
-    - cppcheck --std=c++11 --enable=all -inconclusive test
+    - cppcheck --std=c99 --enable=all -inconclusive src/*.c
+    - cppcheck --std=c++11 --enable=all -inconclusive test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting test/*.cpp
     - cpplint --filter=-legal/copyright,-readability/casting include/*.h
     - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU

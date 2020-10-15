@@ -42,6 +42,7 @@ addons:
             - clang
 before_scripts:
     - sudo pip install cpplint
+    - cmake -DCMAKE_BUILD_TYPE=Debug -DWRAP_VALGRIND=ON .
 script:
     - ctest --output-on-failure
     - cd "${TRAVIS_BUILD_DIR}"
@@ -53,5 +54,5 @@ script:
     - make
 after_success:
     - cd "${TRAVIS_BUILD_DIR}"
-    - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./main.out
-    - bash <(curl -s https://codecov.io/bash)
+    #- valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./main.out
+    - bash <(curl -s https://codecov.io/bash) -X gcovout

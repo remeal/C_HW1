@@ -52,5 +52,6 @@ script:
     - cmake .
     - make
 after_success:
-    - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./main
+    - cd "${TRAVIS_BUILD_DIR}"
+    - valgrind  --show-leak-kinds=all --track-origins=yes --leak-check=full ./main.out
     - bash <(curl -s https://codecov.io/bash)

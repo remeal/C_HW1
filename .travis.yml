@@ -22,7 +22,7 @@ before_script:
 script:
     - ctest --output-on-failure
     - cd "${TRAVIS_BUILD_DIR}"
-    - gcc -coverage -O0 scr/timetable.c -o timetable.c
+    - gcc -coverage -O0 src/timetable.c -o timetable.c
     - ./timetable
     - gcov timetable.c
     - cppcheck --std=c99 --enable=all -inconclusive src/*.c

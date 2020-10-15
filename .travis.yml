@@ -40,7 +40,6 @@ addons:
             - cppcheck
             - clang
 before_scripts:
-    - sudo apt-get install -y libtest-dev
     - sudo pip install cpplint
 script:
     - mkdir build
